@@ -16,10 +16,12 @@ let hours=date.getHours();
 
 function displayTemperature(response){
     console.log(response)  ;
-    let temperature = Math.round(response.data.temperature.current);
+        let temperature = Math.round(response.data.temperature.current);
     let temperatureElement = document.querySelector("#temperature");
     let description = document.querySelector("#temperature-description");
     let dateElement = document.querySelector("#date");
+    let iconElement = document.querySelector("#icon");
+    
     temperatureElement.innerHTML = `${temperature}ºC`;
     description.innerHTML = response.data.condition.description;
     document.querySelector("#city").innerHTML = response.data.city;
@@ -27,8 +29,12 @@ function displayTemperature(response){
     document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
     document.querySelector("#temp").innerHTML = Math.round(response.data.temperature.feels_like);
     dateElement.innerHTML = formatDate(response.time);
+    iconElement.setAttribute("src",`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-night.png${response.condition.icon}`);
   }
+  
   let apiKey = "0dbe3edd0f2e43o0a1f5a4d8b80t5af4";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Bilbao&key=${apiKey}&units=metric`;
+  let city="paris";
+  let country="France";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city},${country}&key=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayTemperature);
