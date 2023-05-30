@@ -31,10 +31,23 @@ function displayTemperature(response){
     dateElement.innerHTML = formatDate(response.time);
     iconElement.setAttribute("src",`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/mist-night.png${response.condition.icon}`);
   }
+  function search(city){
+ 
+  let apiKey = "0dbe3edd0f2e43o0a1f5a4d8b80t5af4";
+    let country = "";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city},${country}&key=${apiKey}&units=metric`;
   
+  axios.get(apiUrl).then(displayTemperature);    
+  }
+  function handleSubmit(event){
+    event.preventDefault();
+    let searchTextInput = document.querySelector("#search-text-input");
+    search(searchTextInput.value);
+  }
   let apiKey = "0dbe3edd0f2e43o0a1f5a4d8b80t5af4";
   let city="paris";
   let country="France";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city},${country}&key=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayTemperature);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit",handleSubmit);
