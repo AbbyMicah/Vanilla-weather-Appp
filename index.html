@@ -13,6 +13,18 @@
     <div class="weather-app-container">
   <div class="container">
     <div class="weather-app">
+    <form id ="search-form" class ="mb-5">
+        <div class="row">
+            <div class="col-6">
+         <input type="search" placeholder="Type a city" id="search-text-input" class="form-control" autocomplete="off"/>
+          </div>
+          <div class="col-3">
+            <input type="submit" value="Search" class="form-control btn btn-primary" id="city-search"/>
+   </div>
+   <div class="col-3">
+    <button class="btn btn-success w-100"id="current-location-button">Current</button>
+   </div>
+</form>  
         <h1 id="city">
             Bilbao, Spain.
         </h1>
