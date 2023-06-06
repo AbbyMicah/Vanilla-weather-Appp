@@ -16,7 +16,8 @@ body{
         text-align:center;
         font-size: 24px;
         font-weight: 500;
-        margin-bottom:0;
+        margin-bottom:3px;
+        margin-top:5px;
       }
       ul{
         margin: 0;
@@ -33,4 +34,22 @@ body{
       }
       li::first-letter{
         text-transform: capitalize;
+      }
+      .form-size{
+        margin-bottom: 20px;
+      }
+      .weather-forecast{
+        text-align: center;
+        margin-top: 20px;
+        color:#000;
+      }
+      .weather-forecast-date{
+        font-size:16px;
+        opacity: 0.5;
+      }
+      .weather-forecast-temperature-min{
+        opacity: 0.5;
+      }
+      .weather-forecast-temperatures{
+        font-size:13px;
       }

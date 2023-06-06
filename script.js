@@ -13,7 +13,27 @@ let hours=date.getHours();
         let day=days[dayIndex];
         return `${day} ${hours}:${minutes}`;
 }
-
+function displayForecast(){
+  let forecastElement = document.querySelector("#forecast");
+  
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day){
+    forecastHTML = forecastHTML +
+   `
+   <div class="col-2">
+    <div class="weather-forecast-date">${day}</div>
+      <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="" width="42"/>
+      <div class="weather-forecast-temperatures">
+        <span class="weather-forecast-temperature-max">21º</span>  
+        <span class="weather-forecast-temperature-min">10º</span>
+        </div>
+    </div> 
+    `;
+  });
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+}
 function displayTemperature(response){
     console.log(response)  ;
         let temperature = Math.round(response.data.temperature.current);
@@ -32,6 +52,7 @@ function displayTemperature(response){
     iconElement.setAttribute("src",`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`);
     
   }
+  
   function search(city){
  
   let apiKey = "0dbe3edd0f2e43o0a1f5a4d8b80t5af4";
@@ -45,7 +66,11 @@ function displayTemperature(response){
     let searchTextInput = document.querySelector("#search-text-input");
     search(searchTextInput.value);
   }
-  
+  function displayFahrenheitTemperature(event){
+event.preventDefault();
+alert("click link");
+
+  }
  
   let apiKey = "0dbe3edd0f2e43o0a1f5a4d8b80t5af4";
   let city = "Bilbao"
@@ -54,6 +79,10 @@ function displayTemperature(response){
   
   axios.get(apiUrl).then(displayTemperature); 
 
- 
   let form = document.querySelector("#search-form");
         form.addEventListener("submit", handleSubmit);
+
+        let fahrenheitLink = document.querySelector("#fahrenheit-link");
+        fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+ displayForecast();
