@@ -10,19 +10,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="weather-app-container">
+  <div class="p-5"> 
+    <div class="weather-app-container p-5">
   <div class="container">
     <div class="weather-app">
       <form id ="search-form" class ="form-size">
         <div class="row">
             <div class="col-6">
-         <input type="search" placeholder="Type a city" id="search-text-input" class="form-control" autocomplete="off"/>
+         <input type="search" placeholder="Type a city" id="search-text-input" class="form-control p-2 mt-3 mb-4 fs-5" autocomplete="off"/>
           </div>
           <div class="col-3">
-            <input type="submit" value="Search" class="form-control btn btn-primary" id="city-search"/>
+            <input type="submit" value="Search" class="form-control btn btn-primary p-2 mt-3 mb-4 fs-5" id="city-search"/>
    </div>
    <div class="col-3">
-    <button class="btn btn-success w-100"id="current-location-button">Current</button>
+    <button class="btn btn-success w-100 p-2 mt-3 mb-4 fs-5"id="current-location-button">Current</button>
    </div>
 </form>
         <h1 id="city">
@@ -55,17 +56,22 @@
             
             <div class="weather-forecast" id="forecast">
              
-                
+               
          </div>         
         </div>   
      </ul>   
        </div>
     </div>
+   <div class="text-center"> 
    <small>
         <a href="https://github.com/AbbyMicah/Vanilla-weather-Appp" target="_blank"> open source code </a> by Abigail Ideyi</a> 
     </small>
+    </div>
+  </div>
+  
     <script src="script.js"></script>
     </div>
   </div>
 </body>
+
 </html>
